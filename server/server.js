@@ -85,9 +85,9 @@ app.get('/api/snippets', async (req, res) => {
   // Search logic for "How to use"
   if (search) {
     query.$or = [
-      { description: { : search, : 'i' } },
-      { language: { : search, : 'i' } },
-      { title: { : search, : 'i' } }
+      { description: { $regex: search, $options: 'i' } },
+      { language: { $regex: search, $options: 'i' } },
+      { title: { $regex: search, $options: 'i' } }
     ];
   }
 
